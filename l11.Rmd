@@ -1,9 +1,26 @@
 ---
-title: "Untitled"
+title: "l11"
 output: github_document
 ---
 
-```
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE)
+
+# tar -xvf ~/Downloads/muscle3.8.31_i86darwin64.tar
+# mv muscle3.8.31_i86darwin64 
+# /Users/helenking/downloads/muscle
+ library(bio3d)
+ids <- c("1TND_B", "1AGR_A", "1TAG_A", "1GG2_A", "1KJY_A","4G5Q_A")
+files <- get.pdb(ids, split=TRUE)
+#the split arguement means extract paticular chains 
+pdbs <- pdbaln(files, fit=TRUE)
+
+#superimposes or fits
+pdbs
+
+# ?rmsd root mean square standard deviation if you entered in fit=FALSE superpostionn is not done prior to calcualtion
+
+
 ```
 
 ## GitHub Documents
@@ -14,16 +31,12 @@ This is an R Markdown format used for publishing markdown documents to GitHub. W
 
 You can include R code in the document as follows:
 
-```{r cars}
-summary(cars)
-```
+
 
 ## Including Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
